@@ -11,3 +11,10 @@ function convertCurrency() {
 document.getElementById("btnConvert").addEventListener("click", convertCurrency);
 
 amount.addEventListener("change", convertCurrency);
+
+
+document.getElementById("fromCurrency").addEventListener("change", function() {
+    if (document.getElementById("fromCurrency").value === 'VND') {
+        document.getElementById("toCurrency").value = 'USD';
+    }
+})

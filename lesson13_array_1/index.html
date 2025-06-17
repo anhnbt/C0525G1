@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 13: Array (1)</title>
+</head>
+<body>
+<script>
+    // internal: nhung truc tiep vao tep HTML
+    // external: nhung mot file .js vao
+    // inline: nhung truc tiep vao the HTML
+
+    // var, let, const (scope: pham vi)
+
+    // Cach 1: Array Literal
+    // const cars = ["BMW", "Volvo", "VinFast"];
+    // cars[10] = 'VinFast';
+    // cars[-1] = 'Mazda'; // property
+    // cars[-2] = 'Huynh dai'; // property
+    // cars['name'] = 'Volvo'; // property
+    //
+    // for (const item in cars) {
+    //     console.log(cars[item]);
+    // }
+
+    // cars.push("Hyundai");
+    // cars.push("Vios");
+    // cars.pop();
+    // cars.pop();
+    // cars.pop();
+    // cars.pop();
+    // cars.push(1, 9, 99, 33, 3, 4, 44);
+    // cars.sort(function (a, b) {
+    //     return b - a; // -, 0, +
+    // });
+    // console.log(cars);
+    // const deletedItem = cars.pop();
+    // console.log("Phan tu bi xoa la: " + deletedItem);
+    // console.log(cars.reverse().join("❤️"));
+    // console.log(cars.length);
+    //
+    // for (let i = 0; i < cars.length; i++) {
+    //     console.log(cars[i]);
+    // }
+    // const cars = [99];
+    // console.log('Do dai cua mang cars: ', cars.length); // 1
+    // console.log(cars[0]); // 99
+
+    // Cach 2: tu khoa new
+    // const fruits = new Array(10); // truyen mot doi so la so nguyen
+    // console.log("Do dai cua mang fruits: ", fruits.length); //
+    // console.log(fruits[0]); // undefined
+
+    // const fruits = new Array('Apple', 'Meomeo', 'Orange', "Kiwi", "Banana");
+    //
+    //
+    // const firstElement = fruits[0];
+    // const midElement = fruits[Math.floor(fruits.length / 2)];
+    // const lastElement = fruits[fruits.length - 1];
+    //
+    // console.log(firstElement, midElement, lastElement);
+
+    // duyet de lay ra key (thuoc tinh), chi so
+    // for (const item in fruits) {
+    //     console.log(fruits[item]);
+    // }
+
+    // for (let i = fruits.length - 1; i >= 0; i--) {
+    //     console.log(fruits[i]);
+    // }
+
+    // const newCar = cars.concat([1, 2, 3, 4, 5]);
+    // console.log(newCar);
+
+
+    // const students = [];
+    //
+    // students.push("Lich");
+    // students.push("Quan");
+    // students.push("Trung");
+    // // students.unshift("Trung");
+    // console.log(students);
+    // console.log(students.shift());
+    // // map(), reduce(), filter()
+    //
+    //
+
+    const numbers = [1, 2, 3, 4, 5]; // 10
+    // const firstItem = numbers[0];
+    // const secondItem = numbers[1];
+    // const thirdItem = numbers[2];
+    // const fourthItem = numbers[3];
+    // let sum = 0;
+    // for (let i = 0; i < numbers.length; i++) {
+    //     sum += numbers[i];
+    // }
+    // console.log(sum);
+    // const sum = numbers.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
+    // console.log(sum);
+    // delete numbers[2];
+    // console.log(numbers);
+    // const filteredNumbers = numbers.filter(function (item) {
+    //     return item >= 4
+    // });
+    // console.log(filteredNumbers);
+
+    // for...in, for...of, forEach
+    // numbers.forEach(function (item) {
+    //     console.log(item);
+    // });
+
+</script>
+</body>
+</html>
