@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 17: OOP 1</title>
+</head>
+<body>
+<script>
+    // Cach 1: Function constructor
+
+    // Khai bao
+    // Tao ra mot kieu du lieu moi: number, string,....
+    // function Person(name, age) {
+    //     // Thuoc tinh (Attribute, Fields, Properties)
+    //     this.name = name;
+    //     this.age = age;
+    //
+    //     this.say = function () {
+    //         console.log(`${this.name} biết nói!, tôi đã ${this.age} tuổi!`);
+    //     }
+    //
+    //     this.move = function () {
+    //         console.log(`${this.name} đang di chuyển!`)
+    //     }
+    // }
+    //
+    // // Khoi tao doi tuong tu lop Person
+    // let person1 = new Person('Tuan Anh', 30);
+    // console.log(person1);
+    //
+    // // let name = 'Tuan Anh';
+    // // let age = '30';
+    //
+    // // console.log(name);
+    // // console.log(age);
+    // console.log(person1.name);
+    // console.log(person1.age);
+    // person1.move();
+    //
+    // // Tạo đối tượng và truy cập thuộc tính + phương thức
+    // let person2 = new Person('Dụng', 25);
+    // console.log(person2.name);
+    // console.log(person2.age);
+    // person2.say();
+    // person2.move();
+
+    // const myDate = new Date();
+    // console.log(myDate.getFullYear()); // 2025
+    // console.log(myDate.getMonth()); // 0-11
+
+    // Cach: Khai bao lop su dung tu khoa class (Gan giong voi Java) - Cu phap duoc them vao phien ban ES6 (2015)
+    class Circle {
+        #radius = 10;
+        #color;
+
+        constructor() {}
+
+        getRadius() {
+            return this.#radius;
+        }
+
+        getArea() {
+            return Math.PI * this.#radius * this.#radius;
+        }
+    }
+
+    let circle1 = new Circle();
+    console.log(circle1.getRadius());
+    console.log(circle1.getArea());
+</script>
+</body>
+</html>
