@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 17: OOP Part 2</title>
+</head>
+<body>
+<script>
+    // Khai bao lop Car: Function constructor
+    // function Car(name, model, weight, color) {
+    //     this.name = name;
+    //     this.model = model;
+    //     this.weight = weight;
+    //     this.color = color;
+    //
+    //     this.start = function() {
+    //
+    //     }
+    //     this.drive = function() {
+    //
+    //     }
+    //     this.stop = function() {
+    //
+    //     }
+    //     this.brake = function() {
+    //
+    //     }
+    //     this.toString = function() {
+    //         // Template literals
+    //         return `Name: ${this.name}, Model: ${this.model}`;
+    //     }
+    // }
+
+    // Single: Function expression
+    // const Car = function() {
+    //     // properties
+    //     // methods
+    // }
+
+    // class Car {
+    //     #name;
+    //     #model;
+    //     #weight;
+    //     #color;
+    //
+    //     constructor(name, model, weight, color) {
+    //         this.#name = name;
+    //         this.#model = model;
+    //         this.#weight = weight;
+    //         this.#color = color;
+    //     }
+    //
+    //     start() {
+    //
+    //     }
+    //
+    //     toString() {
+    //         return `Name; ${this.#name}, Model: ${this.#model}`;
+    //     }
+    //
+    //     get name() {
+    //         return this.#name;
+    //     }
+    // }
+
+    // Object literals: pho bien nhat
+    let mercedes = {
+        name: 'Mercedes',
+        model: "C200",
+        weight: 1000,
+        color: "Red"
+    }
+
+    // Khoi tao doi tuong tu lop
+    // const mercedes = new Car("Mercedes", "C200", 1000, "White");
+    // const bmw = new Car("BMW", "X6", 950, "Black");
+    // const vinFast = new Car("VinFast", "VF9", 4000, "White");
+    // console.log(mercedes.toString());
+    // console.log(bmw.toString());
+    // console.log(vinFast.toString());
+
+    // function sayHello() {
+    //     return "Hello";
+    // }
+    //
+    // dot (.), []
+    // console.log(mercedes['name']);
+    // console.log(mercedes.model);
+
+    const student = {
+        firstName: "Anh",
+        lastName: "Nguyen",
+        dateOfBirth: '2019-06-15',
+        isMarried: false
+    }
+
+    class Employee {
+        #name;
+    }
+
+    class FullTimeEmployee {
+
+    }
+
+    class PartTimeEmployee {
+
+    }
+
+    // const name = "Name";
+    // console.log(student['first' + name]);
+    // console.log(student['last' + name]);
+    // console.log(student.'first' + name);
+    // console.log(student.'last' + name);
+
+    function Apple(type) {
+        this.type = type;
+        this.color = 'Gold';
+
+        this.getInfo = function () {
+            return `Type: ${this.type}, Color: ${this.color}`;
+        }
+
+        this.setType = function (type) {
+            this.type = type;
+        }
+
+        this.setColor = function (color) {
+            this.color = color;
+        }
+    }
+
+    // const macbook = new Apple("Air M4");
+    // // macbook.setColor("Blue");
+    // // macbook.setType("Macbook Pro M4");
+    //
+    // macbook.setType("Mac Mini M4");
+    // macbook.setColor("White");
+    // // switchOn(), switchOff(): lamp.status = true; lamp.status = false;
+    // console.log(macbook.getInfo());
+
+    console.log(3.14159);
+    console.log(Math.ceil(3.14149))
+    console.log(Math.round(3.14149))
+    console.log(Math.floor(3.14149))
+    console.log((3.14149).toFixed(2))
+    console.log(1_000_000 + " VNĐ");
+    const vat = 0.1;
+    const discount = 0.1;
+    const price = 1_000_000;
+    document.write("Giá sản phẩm: <del>" + formatCurrency(price) + "</del><br>");
+    document.write("Giá khuyến mại: " + formatCurrency(price - (price * discount)) + "<br>");
+
+
+    function formatCurrency(number) {
+        return new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(number);
+    }
+
+
+    let str = "🤦‍♀️"; // String literals (nguyen thủy)
+    // let str = new String("Mercedes"); // Object
+    let splitStr = str.split("");
+    console.log(splitStr);
+    document.write(splitStr[0])
+    document.write(splitStr[1])
+    document.write(splitStr[2])
+    document.write(splitStr[3])
+</script>
+</body>
+</html>
