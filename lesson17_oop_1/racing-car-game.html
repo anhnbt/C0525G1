@@ -15,6 +15,7 @@
     canvas.height = 600;
     let score = 0;
 
+    // Car class to handle car properties and behavior
     class Car {
         constructor(x, y, width, height, imageSrc) {
             this.x = x;
@@ -22,16 +23,16 @@
             this.width = width;
             this.height = height;
             this.image = new Image();
-            this.image.src = imageSrc || "Car_Green_Front.svg"; // Default image if none provided
-            this.speed = 2; // Default speed
-            this.direction = 180; // 0: up, 90: right, 180: down, 270: left
+            this.image.src = imageSrc || "Car_Green_Front.svg";
+            this.speed = 2;
+            this.direction = 180; // Default direction: facing up
         }
 
         draw() {
             if (this.image.complete) {
                 ctx.save();
-                ctx.translate(this.x + this.width / 2, this.y + this.height / 2); // Move to car's center
-                ctx.rotate((this.direction * Math.PI) / 180); // Rotate based on direction
+                ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
+                ctx.rotate((this.direction * Math.PI) / 180);
                 ctx.drawImage(
                     this.image,
                     -this.width / 2,
@@ -67,31 +68,27 @@
             if (this.y + this.height > canvas.height) this.y = canvas.height - this.height;
         }
 
-        // Auto move
         autoMove() {
             switch (this.direction) {
-                case 180: // Up
+                case 180: // Move up
                     this.y -= this.speed;
-                    if (this.y < 0) this.y = canvas.height - this.height; // Wrap to bottom
+                    if (this.y < 0) this.y = canvas.height - this.height;
                     break;
-                case 270: // Right
+                case 270: // Move right
                     this.x += this.speed;
-                    if (this.x > canvas.width) this.x = -this.width; // Wrap to left
+                    if (this.x > canvas.width) this.x = -this.width;
                     break;
-                case 0: // Down
+                case 0: // Move down
                     this.y += this.speed;
-                    if (this.y > canvas.height) this.y = -this.height; // Wrap to top
+                    if (this.y > canvas.height) this.y = -this.height;
                     break;
-                case 90: // Left
+                case 90: // Move left
                     this.x -= this.speed;
-                    if (this.x < 0) this.x = canvas.width; // Wrap to right
+                    if (this.x < 0) this.x = canvas.width;
                     break;
             }
         }
 
-        // Additional methods can be added here for more functionality
-        // For example, you could add methods for moving up or down, or for collision detection
-        // You can also add methods to change the car's speed or direction
         checkCollision(obj) {
             return (
                 this.x < obj.x + obj.width &&
@@ -106,6 +103,7 @@
         }
     }
 
+    // Obstacle class to handle obstacle properties and behavior
     class Obstacle {
         constructor(x, y, width, height, imageSrc) {
             this.x = x;
@@ -113,7 +111,7 @@
             this.width = width;
             this.height = height;
             this.image = new Image();
-            this.image.src = imageSrc || "PixelHarvester.svg"; // Default image if none provided
+            this.image.src = imageSrc || "PixelHarvester.svg";
         }
 
         draw() {
@@ -121,11 +119,9 @@
                 ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
             }
         }
-
-        // Additional methods for obstacle behavior can be added here
     }
 
-    // Phần thưởng (Heart class)
+    // Heart class to handle collectible item properties and behavior
     class Heart {
         constructor(x, y, width, height, imageSrc) {
             this.x = x;
@@ -133,7 +129,7 @@
             this.width = width;
             this.height = height;
             this.image = new Image();
-            this.image.src = imageSrc || "Heart.svg"; // Default image if none provided
+            this.image.src = imageSrc || "Heart.svg";
             this.collected = false; // Track if the heart has been collected
         }
 
@@ -148,14 +144,13 @@
             this.y = Math.random() * (canvas.height - this.height);
             this.collected = false; // Reset collected status
         }
-
-        // Additional methods for heart behavior can be added here
     }
 
     const car = new Car(100, 100, 50, 80, "Car_Green_Front.svg");
     const heart = new Heart(100, 100, 40, 40, "Heart.svg");
     const obstacle = new Obstacle(200, 200, 90, 50, "PixelHarvester.svg");
 
+    // Handle key presses for car movement
     document.addEventListener("keydown", (event) => {
         if (event.key === "ArrowLeft") {
             car.moveLeft();
@@ -171,20 +166,14 @@
         }
         if (event.key === "Control") {
             car.speed += 1; // Increase speed
-            console.log(car.speed);
         }
     });
 
-    // Request animation
+    // Main animation loop
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // ctx.beginPath();
-        // ctx.fillStyle = "lightblue";
-        // ctx.fillRect(0, 0, canvas.width, canvas.height);
-        // ctx.closePath();
-
-        // score text
+        // Display score
         ctx.font = "20px Arial";
         ctx.fillStyle = "black";
         ctx.fillText("Score: " + score, 10, 20);
@@ -192,7 +181,7 @@
         car.draw();
         obstacle.draw();
         heart.draw();
-        car.autoMove(); // Call autoMove to move the car automatically
+        car.autoMove();
 
         if (car.checkCollision(obstacle)) {
             console.log("Collision detected!");
@@ -205,16 +194,14 @@
 
         if (car.checkCollision(heart) && !heart.collected) {
             score++;
-            console.log("Heart collected!");
-            heart.collected = true; // Mark heart as collected
-            heart.resetPosition(); // Reposition the heart
+            heart.collected = true;
+            heart.resetPosition();
         }
 
         requestAnimationFrame(animate);
     }
 
     animate();
-
 </script>
 </body>
 </html>
